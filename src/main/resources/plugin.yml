@@ -1,0 +1,6 @@
+name: StudyCraft
+version: '${version}'
+main: xyz.roosterseatyou.studycraft.StudyCraft
+api-version: '1.20'
+authors: [Roosterseatyou]
+description: A plugin to help you study!

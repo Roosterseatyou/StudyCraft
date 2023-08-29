@@ -4,6 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import xyz.roosterseatyou.studycraft.StudyCraft;
 import xyz.roosterseatyou.studycraft.utils.ItemDataUtils;
 
 import java.util.function.Consumer;
@@ -39,7 +40,7 @@ public class GUIButton implements Listener {
         this.consumer = consumer;
     }
 
-public GUIInventoryBuilder getBuilder() {
+    public GUIInventoryBuilder getBuilder() {
         return builder;
     }
 
@@ -54,6 +55,10 @@ public GUIInventoryBuilder getBuilder() {
         if(itemDataUtils.getBooleanData("is_gui_button") && itemDataUtils.getStringData("gui_button_name").equals(name)) {
             consumer.accept(event);
         }
+    }
+
+    public void register() {
+        StudyCraft.getInstance().getServer().getPluginManager().registerEvents(this, StudyCraft.getInstance());
     }
 
 }

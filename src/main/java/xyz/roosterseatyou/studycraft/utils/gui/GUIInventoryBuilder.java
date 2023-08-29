@@ -1,21 +1,25 @@
 package xyz.roosterseatyou.studycraft.utils.gui;
 
+import org.bukkit.Bukkit;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
-public class GUIInventoryBuilder<T extends Inventory> {
+public class GUIInventoryBuilder {
 
-        private final T inventory;
+        private InventoryType type;
+        private Inventory inventory;
 
-        public GUIInventoryBuilder(T inventory) {
-            this.inventory = inventory;
+        public GUIInventoryBuilder(InventoryType type) {
+            type = type;
+            inventory = Bukkit.createInventory(null, type);
+
         }
 
-        public GUIInventoryBuilder<T> setItem(int slot, GUIButton item) {
+        public void setItem(int slot, GUIButton item) {
             inventory.setItem(slot, item.getButtonItem());
-            return this;
         }
 
-        public T build() {
+        public Inventory build() {
             return inventory;
         }
 }
